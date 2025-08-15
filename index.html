@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajesab M - Full Stack Developer | AI Innovator</title>
+    <meta name="description" content="Rajesab M - Passionate Full Stack Developer specializing in React, Node.js, and AI integration. Building fast, scalable web applications.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#38BDF8',
+                        secondary: '#A855F7',
+                        dark: '#0F172A',
+                        'dark-light': '#1E293B',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-border': 'rgba(255, 255, 255, 0.2)'
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'particle': 'particle 20s linear infinite',
+                        'fadeInUp': 'fadeInUp 0.6s ease-out forwards',
+                        'slideInLeft': 'slideInLeft 0.6s ease-out forwards',
+                        'slideInRight': 'slideInRight 0.6s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-dark text-white overflow-x-hidden">
+    <!-- Particle Background -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="text-xl font-bold text-primary">Rajesab M</div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <button id="theme-toggle" class="glass-card p-2 hover:text-primary transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="glass-card p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden glass-card mx-4 mt-2 rounded-2xl">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="mobile-nav-link">Home</a>
+                <a href="#about" class="mobile-nav-link">About</a>
+                <a href="#skills" class="mobile-nav-link">Skills</a>
+                <a href="#projects" class="mobile-nav-link">Projects</a>
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left space-y-8">
+                    <div class="space-y-4">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold">
+                            Hi, I'm <span class="text-gradient">Rajesab M</span>
+                        </h1>
+                        <div class="text-xl sm:text-2xl text-gray-300">
+                            <span id="typed-text"></span>
+                            <span class="cursor">|</span>
+                        </div>
+                        <p class="text-lg text-gray-400 max-w-2xl">
+                            I build fast, scalable, and intelligent web applications with modern technologies and AI integration.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="btn-primary">
+                            Hire Me
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                        <a href="#projects" class="btn-secondary">
+                            View Projects
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative">
+                        <div class="w-72 h-72 rounded-full glass-card p-4 animate-float">
+                            <div class="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-6xl">
+                                👨‍💻
+                            </div>
+                        </div>
+                        <div class="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full animate-pulse"></div>
+                        <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary rounded-full animate-pulse delay-300"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know me better</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 animate-on-scroll" data-animation="slideInLeft">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-2xl font-bold mb-4 text-primary">Full Stack Developer | AI Innovator | Problem Solver</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Hi, I'm Rajesab M, a passionate and detail-oriented developer with a strong foundation in Data Structures & Algorithms, Full Stack Web Development, and Generative AI. I specialize in JavaScript, HTML, CSS, React, and Node.js, and I'm currently exploring AI-powered applications such as AI Agent Marketplace and Trading Analysis tools.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mt-4">
+                            I aim to build solutions that combine performance, modern design, and real-world impact. I enjoy solving complex problems, participating in coding events, and creating projects that push the limits of technology.
+                        </p>
+                    </div>
+                </div>
+                <div class="animate-on-scroll" data-animation="slideInRight">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-6 text-secondary">Quick Facts</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+                                    📧
+                                </div>
+                                <span class="text-gray-300">1by23is172@bmsit.in</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center">
+                                    📱
+                                </div>
+                                <span class="text-gray-300">9900946224</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+                                    🎯
+                                </div>
+                                <span class="text-gray-300">AI & Full Stack Development</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center">
+                                    🚀
+                                </div>
+                                <span class="text-gray-300">Building Intelligent Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">Skills</h2>
+                <p class="section-subtitle">Technologies I work with</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="0">
+                    <div class="skill-icon">🌐</div>
+                    <h3>HTML</h3>
+                </div>
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="100">
+                    <div class="skill-icon">🎨</div>
+                    <h3>CSS</h3>
+                </div>
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="200">
+                    <div class="skill-icon">⚡</div>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="300">
+                    <div class="skill-icon">⚛️</div>
+                    <h3>React.js</h3>
+                </div>
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="400">
+                    <div class="skill-icon">💨</div>
+                    <h3>Tailwind CSS</h3>
+                </div>
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="500">
+                    <div class="skill-icon">🟢</div>
+                    <h3>Node.js</h3>
+                </div>
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="600">
+                    <div class="skill-icon">🚀</div>
+                    <h3>Express.js</h3>
+                </div>
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="700">
+                    <div class="skill-icon">🍃</div>
+                    <h3>MongoDB</h3>
+                </div>
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="800">
+                    <div class="skill-icon">🐙</div>
+                    <h3>Git</h3>
+                </div>
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="900">
+                    <div class="skill-icon">🤖</div>
+                    <h3>AI Integration</h3>
+                </div>
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="1000">
+                    <div class="skill-icon">📊</div>
+                    <h3>MySQL</h3>
+                </div>
+                <div class="skill-card animate-on-scroll" data-animation="fadeInUp" data-delay="1100">
+                    <div class="skill-icon">📡</div>
+                    <h3>API Integration</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">Certificates</h2>
+                <p class="section-subtitle">My achievements and certifications</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="certificate-card animate-on-scroll" data-animation="fadeInUp" data-delay="0">
+                    <div class="certificate-icon">🧮</div>
+                    <h3>Data Structures & Algorithms</h3>
+                    <p>Comprehensive understanding of DSA fundamentals</p>
+                </div>
+                <div class="certificate-card animate-on-scroll" data-animation="fadeInUp" data-delay="200">
+                    <div class="certificate-icon">💻</div>
+                    <h3>Full Stack Web Development</h3>
+                    <p>Complete web development with modern technologies</p>
+                </div>
+                <div class="certificate-card animate-on-scroll" data-animation="fadeInUp" data-delay="400">
+                    <div class="certificate-icon">🤖</div>
+                    <h3>Generative AI</h3>
+                    <p>AI-powered application development and integration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle">Some of my recent work</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                <button class="filter-btn" data-filter="ai">AI Projects</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <div class="project-card animate-on-scroll" data-animation="fadeInUp" data-category="frontend" data-delay="0">
+                    <div class="project-image">
+                        <div class="project-preview bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-4xl">
+                            📺
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Netflix Clone</h3>
+                        <p>Built with HTML & CSS, replicating Netflix UI with responsive design.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>Responsive</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="btn-primary">Demo</a>
+                            <a href="#" class="btn-secondary">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll" data-animation="fadeInUp" data-category="frontend" data-delay="200">
+                    <div class="project-image">
+                        <div class="project-preview bg-gradient-to-br from-orange-500 to-yellow-500 flex items-center justify-center text-4xl">
+                            🛒
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Amazon Clone</h3>
+                        <p>Built with HTML, CSS, and JavaScript; functional product listing and cart UI.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="btn-primary">Demo</a>
+                            <a href="#" class="btn-secondary">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll" data-animation="fadeInUp" data-category="ai fullstack" data-delay="400">
+                    <div class="project-image">
+                        <div class="project-preview bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-4xl">
+                            🤖
+                        </div>
+                        <div class="project-badge">Upcoming</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Agent Marketplace</h3>
+                        <p>Full-stack platform integrating AI agents for automation and productivity.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>AI Integration</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="btn-primary disabled">Coming Soon</a>
+                            <a href="#" class="btn-secondary disabled">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll" data-animation="fadeInUp" data-category="ai" data-delay="600">
+                    <div class="project-image">
+                        <div class="project-preview bg-gradient-to-br from-green-500 to-blue-500 flex items-center justify-center text-4xl">
+                            📈
+                        </div>
+                        <div class="project-badge">Upcoming</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Trading Analysis Tool</h3>
+                        <p>AI-driven analysis platform for market trends and trading insights.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>AI/ML</span>
+                            <span>Data Analysis</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="btn-primary disabled">Coming Soon</a>
+                            <a href="#" class="btn-secondary disabled">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll" data-animation="fadeInUp" data-category="fullstack ai" data-delay="800">
+                    <div class="project-image">
+                        <div class="project-preview bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-4xl">
+                            🌐
+                        </div>
+                        <div class="project-badge">Upcoming</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Full Stack Web Development with AI</h3>
+                        <p>Intelligent web platform combining modern web technologies with AI features.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>AI Integration</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="btn-primary disabled">Coming Soon</a>
+                            <a href="#" class="btn-secondary disabled">Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">Achievements</h2>
+                <p class="section-subtitle">My learning journey and milestones</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="timeline">
+                    <div class="timeline-item animate-on-scroll" data-animation="slideInLeft">
+                        <div class="timeline-marker">📚</div>
+                        <div class="timeline-content">
+                            <h3>Data Structures & Algorithms</h3>
+                            <p>Completed DSA Basics including Arrays, Recursion, Binary Search, and Stacks</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-on-scroll" data-animation="slideInRight">
+                        <div class="timeline-marker">💻</div>
+                        <div class="timeline-content">
+                            <h3>Full Stack Development</h3>
+                            <p>Built multiple frontend and full-stack projects during learning journey</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-on-scroll" data-animation="slideInLeft">
+                        <div class="timeline-marker">🎓</div>
+                        <div class="timeline-content">
+                            <h3>Certifications Achieved</h3>
+                            <p>Certified in Full Stack Web Development and Generative AI</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-on-scroll" data-animation="slideInRight">
+                        <div class="timeline-marker">🚀</div>
+                        <div class="timeline-content">
+                            <h3>Continuous Learning</h3>
+                            <p>Actively learning AI and advanced web development for placements</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's work together on something amazing</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-8 animate-on-scroll" data-animation="slideInLeft">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-2xl font-bold mb-6 text-primary">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                                    📧
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-gray-400">1by23is172@bmsit.in</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center">
+                                    📱
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <p class="text-gray-400">9900946224</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                                    💼
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">LinkedIn</h4>
+                                    <p class="text-gray-400">Connect with me</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center">
+                                    🐱
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">GitHub</h4>
+                                    <p class="text-gray-400">Check out my code</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-on-scroll" data-animation="slideInRight">
+                    <form id="contact-form" class="glass-card p-8 rounded-3xl space-y-6">
+                        <h3 class="text-2xl font-bold mb-6 text-secondary">Send a Message</h3>
+                        <div>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required class="contact-input">
+                        </div>
+                        <div>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required class="contact-input">
+                        </div>
+                        <div>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required class="contact-input">
+                        </div>
+                        <div>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required class="contact-input"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">
+                            Send Message
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-glass-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2024 Rajesab M. All rights reserved.</p>
+                <p class="text-sm text-gray-500 mt-2">Built with passion and modern web technologies</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary/80 z-50">
+        <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
